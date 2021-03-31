@@ -1,0 +1,14 @@
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+#main {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 720px;
+    display: flex;
+    flex-direction: column;
+}
