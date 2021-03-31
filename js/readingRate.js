@@ -39,12 +39,17 @@ class ReadingRate {
             minutes = Math.floor(secondsInput % 3600 / 60),
             seconds = Math.floor(secondsInput % 3600 % 60);
 
-        let hDisplay = hours > 0 ? hours + (hours == 1 ? " hora " : " horas ") : "",
-            mDisplay = minutes > 0 ? minutes + (minutes == 1 ? " minuto " : " minutos ") : "",
+        let hDisplay = hours > 0 ? hours + (hours == 1 ? " hora" : " horas") : "",
+            mDisplay = minutes > 0 ? minutes + (minutes == 1 ? " minuto" : " minutos") : "",
             sDisplay = seconds > 0 ? seconds + (seconds == 1 ? " segundo" : " segundos") : "";
 
-        let result = hDisplay + mDisplay + sDisplay;
+        let result = [
+            hDisplay,
+            mDisplay,
+            sDisplay
+        ];
 
+        result = result.filter(x => typeof x === 'string' && x.length > 0).join(', ');
         return result.trim();
     }
 
