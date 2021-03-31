@@ -13,6 +13,10 @@ class ReadingRate {
         return result.split(" ").length;
     }
 
+    calculateChars(text) {
+        return text.length;
+    }
+
     calculateInSeconds(textareaID) {
         let text = "",
             wordCount = "";

@@ -21,8 +21,9 @@
 
     <script>
         let button = document.getElementById("calculate");
+        let readingRate = new ReadingRate();
+
         button.addEventListener('click', function() {
-            let readingRate = new ReadingRate();
             readingRate.calculateTime('text', 'result');
         });
     </script>
