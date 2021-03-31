@@ -7,7 +7,7 @@ function calculateInSeconds(textareaID) {
         wordCount = "";
 
     let secondsForMinutes = 60,
-        wordsForMinutes = 200,
+        wordsForMinutes = 150,
         readingRateInSeconds = 0;
 
     text = document.getElementById(textareaID).value;
@@ -18,8 +18,25 @@ function calculateInSeconds(textareaID) {
     return readingRateInSeconds;
 }
 
+function secondsToHms(secondsInput) {
+    secondsInput = Number(secondsInput);
+
+    let hours = Math.floor(secondsInput / 3600),
+        minutes = Math.floor(secondsInput % 3600 / 60),
+        seconds = Math.floor(secondsInput % 3600 % 60);
+
+    let hDisplay = hours > 0 ? hours + (hours == 1 ? " hora, " : " horas, ") : "",
+        mDisplay = minutes > 0 ? minutes + (minutes == 1 ? " minuto, " : " minutos, ") : "",
+        sDisplay = seconds > 0 ? seconds + (seconds == 1 ? " segundos" : " segundos") : "";
+
+    let result = hDisplay + mDisplay + sDisplay;
+
+    return result.trim();
+}
+
 function calculate(textareaID) {
     let seconds = calculateInSeconds(textareaID);
+    let result = secondsToHms(seconds);
 
-    alert(seconds);
+    alert(result);
 }
