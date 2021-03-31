@@ -1,7 +1,16 @@
 class ReadingRate {
 
+    constructor() {
+        this.WORDS_FOR_MINUTES = 150;
+    }
+
     removeDuplicatesSpaces(text) {
         return text.replace(/\s+/g, ' ');
+    }
+
+    calculateWords(text) {
+        let result = this.removeDuplicatesSpaces(text);
+        return result.split(" ").length;
     }
 
     calculateInSeconds(textareaID) {
@@ -9,12 +18,11 @@ class ReadingRate {
             wordCount = "";
 
         let secondsForMinutes = 60,
-            wordsForMinutes = 150,
+            wordsForMinutes = this.WORDS_FOR_MINUTES,
             readingRateInSeconds = 0;
 
         text = document.getElementById(textareaID).value;
-        text = this.removeDuplicatesSpaces(text);
-        wordCount = text.split(" ").length;
+        wordCount = this.calculateWords(text);
 
         readingRateInSeconds = (wordCount * secondsForMinutes) / wordsForMinutes;
         return readingRateInSeconds;
@@ -36,7 +44,7 @@ class ReadingRate {
         return result.trim();
     }
 
-    calculate(textareaID, resultID) {
+    calculateTime(textareaID, resultID) {
         let seconds = this.calculateInSeconds(textareaID);
         let result = this.secondsToHms(seconds);
 
