@@ -9,7 +9,7 @@ class ReadingRate {
     }
 
     calculateWords(text) {
-        let result = this.removeDuplicatesSpaces(text);
+        let result = this.removeDuplicatesSpaces(text).trim();
         return result.split(" ").length;
     }
 
@@ -39,9 +39,9 @@ class ReadingRate {
             minutes = Math.floor(secondsInput % 3600 / 60),
             seconds = Math.floor(secondsInput % 3600 % 60);
 
-        let hDisplay = hours > 0 ? hours + (hours == 1 ? " hora, " : " horas, ") : "",
-            mDisplay = minutes > 0 ? minutes + (minutes == 1 ? " minuto, " : " minutos, ") : "",
-            sDisplay = seconds > 0 ? seconds + (seconds == 1 ? " segundos" : " segundos") : "";
+        let hDisplay = hours > 0 ? hours + (hours == 1 ? " hora " : " horas ") : "",
+            mDisplay = minutes > 0 ? minutes + (minutes == 1 ? " minuto " : " minutos ") : "",
+            sDisplay = seconds > 0 ? seconds + (seconds == 1 ? " segundo" : " segundos") : "";
 
         let result = hDisplay + mDisplay + sDisplay;
 
@@ -55,7 +55,7 @@ class ReadingRate {
         let words = this.calculateWords(text);
         let chars = this.calculateChars(text);
 
-        let result = `Total de palavras: ${ words } Total de caracteres: ${ chars }`;
+        let result = `Total de palavras: ${ words } | Total de caracteres: ${ chars }`;
         score.innerHTML = result;
     }
 
