@@ -1,0 +1,1 @@
+# contador-de-tempo-de-leitura
