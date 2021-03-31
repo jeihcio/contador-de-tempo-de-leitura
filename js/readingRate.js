@@ -5,7 +5,7 @@ class ReadingRate {
     }
 
     removeDuplicatesSpaces(text) {
-        return text.replace(/\s+/g, ' ');
+        return String(text).replace(/\s+/g, ' ');
     }
 
     calculateWords(text) {
@@ -14,7 +14,7 @@ class ReadingRate {
     }
 
     calculateChars(text) {
-        return text.length;
+        return String(text).length;
     }
 
     calculateInSeconds(textareaID) {
@@ -46,6 +46,17 @@ class ReadingRate {
         let result = hDisplay + mDisplay + sDisplay;
 
         return result.trim();
+    }
+
+    score(textareaID, scoreID) {
+        let score = document.getElementById(scoreID);
+        let text = document.getElementById(textareaID).value;
+
+        let words = this.calculateWords(text);
+        let chars = this.calculateChars(text);
+
+        let result = `Total de palavras: ${ words } Total de caracteres: ${ chars }`;
+        score.innerHTML = result;
     }
 
     calculateTime(textareaID, resultID) {

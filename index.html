@@ -16,15 +16,23 @@
         <div class="mb-2">Texto:</div>
         <textarea id="text" class="form-control" rows="10"></textarea>
         <button id="calculate" type="button" class="btn btn-primary mt-2">Calcular</button>
+        <div id="score" class="mt-2"></div>
         <div id="result" class="mt-2"></div>
     </main>
 
     <script>
-        let button = document.getElementById("calculate");
-        let readingRate = new ReadingRate();
+        window.addEventListener('load', function() {
+            let textarea = document.getElementById("text");
+            let button = document.getElementById("calculate");
+            let readingRate = new ReadingRate();
 
-        button.addEventListener('click', function() {
-            readingRate.calculateTime('text', 'result');
+            button.addEventListener('click', function() {
+                readingRate.calculateTime('text', 'result');
+            });
+
+            textarea.addEventListener('keypress', function() {
+                readingRate.score('text', 'score');
+            });
         });
     </script>
 </body>
