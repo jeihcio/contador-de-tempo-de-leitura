@@ -43,7 +43,7 @@ class ReadingRate {
 
         let hDisplay = hours > 0 ? hours + (hours == 1 ? " hora" : " horas") : "",
             mDisplay = minutes > 0 ? minutes + (minutes == 1 ? " minuto" : " minutos") : "",
-            sDisplay = seconds > 0 ? seconds + (seconds == 1 ? " segundo" : " segundos") : "";
+            sDisplay = seconds > 0 ? seconds + (seconds == 1 ? " segundo" : " segundos") : "0 segundo";
 
         let result = [
             hDisplay,
@@ -51,8 +51,8 @@ class ReadingRate {
             sDisplay
         ];
 
-        result = result.filter(x => typeof x === 'string' && x.length > 0).join(', ');
-        return result.trim();
+        result = result.filter(x => typeof x === 'string' && x.length > 0).join(', ').trim();
+        return result;
     }
 
     score(textareaID, scoreID) {
