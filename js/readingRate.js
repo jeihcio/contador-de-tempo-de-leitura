@@ -10,7 +10,9 @@ class ReadingRate {
 
     calculateWords(text) {
         let result = this.removeDuplicatesSpaces(text).trim();
-        return result.split(" ").length;
+
+        result = (String(result).trim() != "") ? result.split(" ").length : 0;
+        return result;
     }
 
     calculateChars(text) {
