@@ -1,8 +1,3 @@
-textarea:focus,
-input:focus {
-    outline: none;
-}
-
 #main {
     position: absolute;
     left: 50%;

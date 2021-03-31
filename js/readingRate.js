@@ -1,42 +1,45 @@
-function removeDuplicatesSpaces(text) {
-    return text.replace(/\s+/g, ' ');
-}
+class ReadingRate {
 
-function calculateInSeconds(textareaID) {
-    let text = "",
-        wordCount = "";
+    removeDuplicatesSpaces(text) {
+        return text.replace(/\s+/g, ' ');
+    }
 
-    let secondsForMinutes = 60,
-        wordsForMinutes = 150,
-        readingRateInSeconds = 0;
+    calculateInSeconds(textareaID) {
+        let text = "",
+            wordCount = "";
 
-    text = document.getElementById(textareaID).value;
-    text = removeDuplicatesSpaces(text);
-    wordCount = text.split(" ").length;
+        let secondsForMinutes = 60,
+            wordsForMinutes = 150,
+            readingRateInSeconds = 0;
 
-    readingRateInSeconds = (wordCount * secondsForMinutes) / wordsForMinutes;
-    return readingRateInSeconds;
-}
+        text = document.getElementById(textareaID).value;
+        text = this.removeDuplicatesSpaces(text);
+        wordCount = text.split(" ").length;
 
-function secondsToHms(secondsInput) {
-    secondsInput = Number(secondsInput);
+        readingRateInSeconds = (wordCount * secondsForMinutes) / wordsForMinutes;
+        return readingRateInSeconds;
+    }
 
-    let hours = Math.floor(secondsInput / 3600),
-        minutes = Math.floor(secondsInput % 3600 / 60),
-        seconds = Math.floor(secondsInput % 3600 % 60);
+    secondsToHms(secondsInput) {
+        secondsInput = Number(secondsInput);
 
-    let hDisplay = hours > 0 ? hours + (hours == 1 ? " hora, " : " horas, ") : "",
-        mDisplay = minutes > 0 ? minutes + (minutes == 1 ? " minuto, " : " minutos, ") : "",
-        sDisplay = seconds > 0 ? seconds + (seconds == 1 ? " segundos" : " segundos") : "";
+        let hours = Math.floor(secondsInput / 3600),
+            minutes = Math.floor(secondsInput % 3600 / 60),
+            seconds = Math.floor(secondsInput % 3600 % 60);
 
-    let result = hDisplay + mDisplay + sDisplay;
+        let hDisplay = hours > 0 ? hours + (hours == 1 ? " hora, " : " horas, ") : "",
+            mDisplay = minutes > 0 ? minutes + (minutes == 1 ? " minuto, " : " minutos, ") : "",
+            sDisplay = seconds > 0 ? seconds + (seconds == 1 ? " segundos" : " segundos") : "";
 
-    return result.trim();
-}
+        let result = hDisplay + mDisplay + sDisplay;
 
-function calculate(textareaID, resultID) {
-    let seconds = calculateInSeconds(textareaID);
-    let result = secondsToHms(seconds);
+        return result.trim();
+    }
 
-    document.getElementById(resultID).innerHTML = "<b>Tempo estimado</b>: " + result;
+    calculate(textareaID, resultID) {
+        let seconds = this.calculateInSeconds(textareaID);
+        let result = this.secondsToHms(seconds);
+
+        document.getElementById(resultID).innerHTML = "<b>Tempo estimado</b>: " + result;
+    }
 }

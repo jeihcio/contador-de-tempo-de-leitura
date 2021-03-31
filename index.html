@@ -15,9 +15,17 @@
     <main id="main">
         <div class="mb-2">Texto:</div>
         <textarea id="text" class="form-control" rows="10"></textarea>
-        <button id="calculate" onclick="calculate('text', 'result')" type="button" class="btn btn-primary mt-2">Calcular</button>
+        <button id="calculate" type="button" class="btn btn-primary mt-2">Calcular</button>
         <div id="result" class="mt-2"></div>
     </main>
+
+    <script>
+        let button = document.getElementById("calculate");
+        button.addEventListener('click', function() {
+            let readingRate = new ReadingRate();
+            readingRate.calculate('text', 'result');
+        });
+    </script>
 </body>
 
 </html>
