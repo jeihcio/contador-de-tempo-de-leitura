@@ -34,9 +34,9 @@ function secondsToHms(secondsInput) {
     return result.trim();
 }
 
-function calculate(textareaID) {
+function calculate(textareaID, resultID) {
     let seconds = calculateInSeconds(textareaID);
     let result = secondsToHms(seconds);
 
-    alert(result);
+    document.getElementById(resultID).innerHTML = "<b>Tempo estimado</b>: " + result;
 }
