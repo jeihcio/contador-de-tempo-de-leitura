@@ -6,3 +6,7 @@
 ## Demonstração
 
 ![](https://raw.githubusercontent.com/jeihcio/contador-de-tempo-de-leitura/main/resultado.png)
+
+## Online
+
+https://jeihcio.github.io/contador-de-tempo-de-leitura/
